@@ -12,15 +12,12 @@ dotenv.config();
 const PORT = process.env.SERVER_PORT
 
 // middlewares
-app.use(cors());
-app.use(express.urlencoded({ extended: true }));
+// app.use(cors());
+// app.use(express.urlencoded({ extended: true }));
+app.use(express.static("./public"))
 app.use(express.json());
 
 // routes
-app.get('/hello', (req, res) => {
-    res.send('Task Manager App')
-})
-
 app.use('/api/v1/tasks', tasks)
 
 // Connect to database
