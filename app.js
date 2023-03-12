@@ -10,6 +10,7 @@ const app = express()
 // Setup
 dotenv.config();
 const PORT = process.env.SERVER_PORT
+const notFound = require('./middlewares/not-found')
 
 // middlewares
 // app.use(cors());
@@ -19,6 +20,8 @@ app.use(express.json());
 
 // routes
 app.use('/api/v1/tasks', tasks)
+app.use(notFound)
+
 
 // Connect to database
 connectToDatabase()
